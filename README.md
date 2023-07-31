@@ -44,3 +44,17 @@ Build and run C++
 ```
 ./exec.sh
 ```
+
+Addendum
+
+The version of onnxruntime I tried is 1.16.0
+
+The directory "onnxruntime_coreml" is a shared library of onnxruntime v1.16.
+
+It is not necessary to run the build process, but just for the sake of note, I will describe how to build it.
+
+To link and build Coreml,
+
+```
+. /build.sh --config RelWithDebInfo --cmake_extra_defines CMAKE_INSTALL_PREFIX=`pwd`/install --build_shared_lib --use_coreml --parallel
+```
