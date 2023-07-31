@@ -1,9 +1,6 @@
 ## Verify if coreml can be used as a backend in onnxruntime.
 
 
-#### Failed..tried..
-
-
 
 ```
 OrtSessionOptionsAppendExecutionProvider_CoreML, _In_ OrtSessionOptions* options, uint32_t coreml_flagsh
@@ -11,7 +8,7 @@ OrtSessionOptionsAppendExecutionProvider_CoreML, _In_ OrtSessionOptions* options
 
 The above functions appear to be implemented in onnxruntime.
 
-So I added the following.
+So I added in onnxruntime_coreml/include/onnxruntime_c_api.h, the following.
 
 ```
 ORT_API_STATUS(OrtSessionOptionsAppendExecutionProvider_CoreML, _In_ OrtSessionOptions* options, uint32_t coreml_flags);
@@ -56,5 +53,5 @@ It is not necessary to run the build process, but just for the sake of note, I w
 To link and build Coreml,
 
 ```
-. /build.sh --config RelWithDebInfo --cmake_extra_defines CMAKE_INSTALL_PREFIX=`pwd`/install --build_shared_lib --use_coreml --parallel
+./build.sh --config RelWithDebInfo --cmake_extra_defines CMAKE_INSTALL_PREFIX=`pwd`/install --build_shared_lib --use_coreml --parallel
 ```
