@@ -17,17 +17,12 @@ class LargeModel(nn.Module):
             nn.Linear(10000, 10000),
             nn.ReLU()
         )
-        self.block4 = nn.Sequential(
-            nn.Linear(10000, 10000),
-            nn.ReLU()
-        )
         self.fc = nn.Linear(10000, 16000)
 
     def forward(self, x):
         x = self.block1(x)
         x = self.block2(x)
         x = self.block3(x)
-        x = self.block4(x)
         x = self.fc(x)
         return x
 

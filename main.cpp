@@ -15,8 +15,9 @@ int main() {
     // coreml
     Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CoreML(session_options, 1));
 
-    Ort::Env env(ORT_LOGGING_LEVEL_WARNING, "TestONNXRuntime");
+    Ort::Env env(ORT_LOGGING_LEVEL_VERBOSE, "TestONNXRuntime");
     Ort::Session onnx_session(env, "/Users/XXXX/dev/C++/test-onnx-runtime/large_model.onnx", session_options);
+
 
     // 入力と出力の情報を取得します。
     std::vector<int64_t> input_shape = {1, 16000};
