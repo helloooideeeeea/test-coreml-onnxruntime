@@ -13,7 +13,7 @@ int main() {
 //    Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CPU(session_options, 0));
 
     // coreml
-    Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CoreML(session_options, 1));
+    Ort::ThrowOnError(OrtSessionOptionsAppendExecutionProvider_CoreML(session_options,  0x000));
 
     Ort::Env env(ORT_LOGGING_LEVEL_VERBOSE, "TestONNXRuntime");
     Ort::Session onnx_session(env, "/Users/XXXX/dev/C++/test-onnx-runtime/large_model.onnx", session_options);
